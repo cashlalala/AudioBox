@@ -43,7 +43,7 @@
     <TargetName>$(ProjectName)</TargetName>
     <IncludePath>C:\Python\Python25\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Python\Python25\libs;$(LibraryPath)</LibraryPath>
-    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.pyc;*.py;*.pyd</ExtensionsToDeleteOnClean>
+    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.pyc;*.py;*.pyd;</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -64,7 +64,7 @@
       <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(TargetPath)" "$(TargetDir)_$(TargetName).pyd"</Command>
+      <Command>copy  /y /v "$(TargetPath)" "$(TargetDir)_$(TargetName).pyd"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -84,7 +84,7 @@
       <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(TargetPath)" "$(TargetDir)_$(TargetName).pyd"</Command>
+      <Command>copy  /y /v "$(TargetPath)" "$(TargetDir)_$(TargetName).pyd"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

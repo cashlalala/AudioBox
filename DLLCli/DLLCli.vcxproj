@@ -96,7 +96,7 @@
     <ResourceCompile Include="DLLCli.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DLL Test\DLL Test.vcxproj">
+    <ProjectReference Include="..\DSPlayer\DSPlayer.vcxproj">
       <Project>{4c822f28-4503-4ac6-ae26-944d4b2bd703}</Project>
     </ProjectReference>
   </ItemGroup>

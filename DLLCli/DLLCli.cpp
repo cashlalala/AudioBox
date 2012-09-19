@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "DLLCli.h"
 
-#include "..\DLL Test\DSPlayer.h"
+#include "..\DSPlayer\DSPlayer.h"
 
 #define MAX_LOADSTRING 100
 
