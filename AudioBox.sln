@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSPlayer", "DSPlayer\DSPlayer.vcxproj", "{4C822F28-4503-4AC6-AE26-944D4B2BD703}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLLCli", "DLLCli\DLLCli.vcxproj", "{972CC5F3-700D-47DB-8AB6-CE1CC6447727}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "AudioBox", "AudioBox\AudioBox.pyproj", "{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Debug|Win32.Build.0 = Debug|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Release|Win32.ActiveCfg = Release|Win32
+		{4C822F28-4503-4AC6-AE26-944D4B2BD703}.Release|Win32.Build.0 = Release|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Debug|Win32.ActiveCfg = Debug|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Debug|Win32.Build.0 = Debug|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Release|Any CPU.ActiveCfg = Release|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Release|Win32.ActiveCfg = Release|Win32
+		{972CC5F3-700D-47DB-8AB6-CE1CC6447727}.Release|Win32.Build.0 = Release|Win32
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A5E6C40A-9CBA-478A-A2CD-0952BAF74D22}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
