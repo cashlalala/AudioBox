@@ -6,8 +6,7 @@
     <ProjectGuid>{a5e6c40a-9cba-478a-a2cd-0952baf74d22}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>AudioBox.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\Debug\;C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>AudioBox</Name>
@@ -15,6 +14,11 @@
     <IsWindowsApplication>True</IsWindowsApplication>
     <InterpreterId>2af0f10d-7135-4994-9156-5d01c9c11b7e</InterpreterId>
     <InterpreterVersion>2.5</InterpreterVersion>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>dsplayer.xml</CommandLineArguments>
+    <InterpreterPath />
+    <InterpreterArguments>
+    </InterpreterArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +30,52 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AudioBox.py" />
+    <Compile Include="comp\PlayerWindow.py" />
+    <Compile Include="comp\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_allocator.pyd">
+      <Name>_allocator.pyd</Name>
+      <PythonExtension>koanSDK\_allocator.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_font.pyd">
+      <Name>_font.pyd</Name>
+      <PythonExtension>koanSDK\_font.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_image.pyd">
+      <Name>_image.pyd</Name>
+      <PythonExtension>koanSDK\_image.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_Interpolator.pyd">
+      <Name>_Interpolator.pyd</Name>
+      <PythonExtension>koanSDK\_Interpolator.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_presenter.pyd">
+      <Name>_presenter.pyd</Name>
+      <PythonExtension>koanSDK\_presenter.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_rddetect.pyd">
+      <Name>_rddetect.pyd</Name>
+      <PythonExtension>koanSDK\_rddetect.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_render3d.pyd">
+      <Name>_render3d.pyd</Name>
+      <PythonExtension>koanSDK\_render3d.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\AudioBox\koanSDK\_wingdi.pyd">
+      <Name>_wingdi.pyd</Name>
+      <PythonExtension>koanSDK\_wingdi.pyd</PythonExtension>
+    </Reference>
+    <Reference Include="C:\Users\cash_chang\Documents\Visual Studio 2010\Projects\DLL Test\Debug\_DSPlayer.pyd">
+      <Name>_DSPlayer.pyd</Name>
+      <PythonExtension>..\Debug\_DSPlayer.pyd</PythonExtension>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="comp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dsplayer.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

@@ -2685,8 +2685,9 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_DSPlayer swig_types[0]
 #define SWIGTYPE_p_HRESULT swig_types[1]
 #define SWIGTYPE_p_char swig_types[2]
-static swig_type_info *swig_types[4];
-static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
+#define SWIGTYPE_p_wchar_t swig_types[3]
+static swig_type_info *swig_types[5];
+static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2793,6 +2794,13 @@ SWIGINTERNINLINE PyObject *
 SWIG_From_int  (int value)
 {    
   return SWIG_From_long  (value);
+}
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_bool  (bool value)
+{
+  return PyBool_FromLong(value ? 1 : 0);
 }
 
 #ifdef __cplusplus
@@ -2942,6 +2950,50 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DSPlayer_GetFileName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DSPlayer *arg1 = (DSPlayer *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  wchar_t *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DSPlayer_GetFileName",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DSPlayer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DSPlayer_GetFileName" "', argument " "1"" of type '" "DSPlayer *""'"); 
+  }
+  arg1 = reinterpret_cast< DSPlayer * >(argp1);
+  result = (wchar_t *)(arg1)->GetFileName();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wchar_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DSPlayer_GetIsPlaying(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DSPlayer *arg1 = (DSPlayer *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DSPlayer_GetIsPlaying",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DSPlayer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DSPlayer_GetIsPlaying" "', argument " "1"" of type '" "DSPlayer *""'"); 
+  }
+  arg1 = reinterpret_cast< DSPlayer * >(argp1);
+  result = (bool)(arg1)->GetIsPlaying();
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *DSPlayer_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
@@ -2983,6 +3035,31 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GetFileName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DSPlayer *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:GetFileName",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_DSPlayer,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GetFileName" "', argument " "1"" of type '" "DSPlayer &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GetFileName" "', argument " "1"" of type '" "DSPlayer &""'"); 
+  }
+  arg1 = reinterpret_cast< DSPlayer * >(argp1);
+  result = (PyObject *)GetFileName(*arg1);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"new_DSPlayer", _wrap_new_DSPlayer, METH_VARARGS, NULL},
@@ -2992,9 +3069,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DSPlayer_DoPlayOrPause", _wrap_DSPlayer_DoPlayOrPause, METH_VARARGS, NULL},
 	 { (char *)"DSPlayer_DoStop", _wrap_DSPlayer_DoStop, METH_VARARGS, NULL},
 	 { (char *)"DSPlayer_DoPlay", _wrap_DSPlayer_DoPlay, METH_VARARGS, NULL},
+	 { (char *)"DSPlayer_GetFileName", _wrap_DSPlayer_GetFileName, METH_VARARGS, NULL},
+	 { (char *)"DSPlayer_GetIsPlaying", _wrap_DSPlayer_GetIsPlaying, METH_VARARGS, NULL},
 	 { (char *)"DSPlayer_swigregister", DSPlayer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"CreateDSPlayerObject", _wrap_CreateDSPlayerObject, METH_VARARGS, NULL},
 	 { (char *)"DeleteDSPlayerObject", _wrap_DeleteDSPlayerObject, METH_VARARGS, NULL},
+	 { (char *)"GetFileName", _wrap_GetFileName, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -3004,21 +3084,25 @@ static PyMethodDef SwigMethods[] = {
 static swig_type_info _swigt__p_DSPlayer = {"_p_DSPlayer", "DSPlayer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_HRESULT = {"_p_HRESULT", "HRESULT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wchar_t = {"_p_wchar_t", "wchar_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_DSPlayer,
   &_swigt__p_HRESULT,
   &_swigt__p_char,
+  &_swigt__p_wchar_t,
 };
 
 static swig_cast_info _swigc__p_DSPlayer[] = {  {&_swigt__p_DSPlayer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_HRESULT[] = {  {&_swigt__p_HRESULT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wchar_t[] = {  {&_swigt__p_wchar_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_DSPlayer,
   _swigc__p_HRESULT,
   _swigc__p_char,
+  _swigc__p_wchar_t,
 };
 
 

@@ -13,6 +13,34 @@ void __stdcall DeleteDSPlayerObject(DSPlayer* obj)
 	obj = NULL;
 }
 
+BOOL WCharToMByte(LPCWSTR lpcwszStr, LPSTR lpszStr, DWORD dwSize)
+{
+	DWORD dwMinSize;
+	dwMinSize = WideCharToMultiByte(CP_OEMCP,NULL,lpcwszStr,-1,NULL,0,NULL,FALSE);
+	if(dwSize < dwMinSize)
+	{
+		return FALSE;
+	}
+	WideCharToMultiByte(CP_OEMCP,NULL,lpcwszStr,-1,lpszStr,dwSize,NULL,FALSE);
+	return TRUE;
+}
+
+DLL_API PyObject* __stdcall GetFileName( DSPlayer& dp )
+{
+	char szTmpCharFileName[MAX_SIZE];
+	memset(szTmpCharFileName,0x0,MAX_SIZE);
+
+	wchar_t* szTmpFileName = dp.GetFileName();	
+	WCharToMByte(szTmpFileName,szTmpCharFileName,MAX_SIZE);
+	PyObject* resultString = PyString_FromFormat("%s",szTmpCharFileName);
+	return resultString;
+}
+
+wchar_t* __stdcall DSPlayer::GetFileName()
+{
+	return this->m_szFileName;
+}
+
 DSPlayer::DSPlayer(void)
 {
 	CoInitialize(NULL);
@@ -94,13 +122,13 @@ int DSPlayer::OpenFileDialog()
 	OPENFILENAME ofn;
 
 	ZeroMemory(&ofn, sizeof(ofn));
-	ZeroMemory(szFileName, sizeof(szFileName));
+	ZeroMemory(m_szFileName, sizeof(m_szFileName));
 
 	// Initialize 
 	ofn.lStructSize = sizeof(ofn);
 	ofn.hwndOwner = NULL;
 	ofn.lpstrFilter = L"mp3 Files (*.mp3)\0*.mp3\0avi files (*.avi)\0*.avi\0";
-	ofn.lpstrFile = szFileName;
+	ofn.lpstrFile = m_szFileName;
 	ofn.nMaxFile = MAX_SIZE;
 	ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 	ofn.lpstrDefExt = L"mp3";
@@ -158,7 +186,7 @@ int DSPlayer::StartPlayingFile()
 	LONGLONG lDuration100NanoSecs = 0;
 	long temporary;
 
-	wcsncpy(wFileName, szFileName, MAX_SIZE);
+	wcsncpy(wFileName, m_szFileName, MAX_SIZE);
 
 	// create the filter graph
 	m_pGraphBuilder->RenderFile(wFileName, NULL);
@@ -201,4 +229,9 @@ int DSPlayer::DoPlayOrPause()
 		}
 	}
 	return 1;
+}
+
+bool DSPlayer::GetIsPlaying(void)
+{
+	return this->m_bIsPlaying;
 }

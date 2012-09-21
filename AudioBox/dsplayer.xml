@@ -1,0 +1,24 @@
+<PlayerWindow xmlns:x='$command$'>
+	<Canvas width='*(parent.width)' height='*(parent.height)'
+		bgColor='darkgray'>
+		<TextButton bgColor='white' rect='10,10,170,100' >
+			<Text autosize='True' fontSize='12'>
+			<x:binddata>
+				root.statusText -> text
+			</x:binddata>
+			</Text>
+		</TextButton>
+		<StackPanel rect='200,10,150,130'>
+			<TextButton text='Open File' bgColor='lightgray' command='OpenFile' size='150,25'/>
+			<TextButton text='Play' bgColor='lightgray' command='Play' size='150,25'/>
+			<TextButton text='Stop' bgColor='lightgray' command='Stop' size='150,25'/>
+			<TextButton text='Pause/Play' bgColor='lightgray' command='PauseOrPlay' size='150,25' />
+		</StackPanel>
+	</Canvas>
+	<x:bind>
+		$OpenFile -> root.onClickOpenFile |
+		$Play -> root.onClickPlay |
+		$Stop -> root.onClickStop |
+		$PauseOrPlay -> root.onClickPlayOrPause
+	</x:bind>
+</PlayerWindow>

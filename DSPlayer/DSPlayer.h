@@ -15,6 +15,8 @@ extern "C"{
 #include "stdafx.h"
 #include <DShow.h>
 #include <CommDlg.h>
+#include <Python.h>
+
 
 #define MAX_SIZE 256
 
@@ -36,6 +38,11 @@ public:
 	virtual int __stdcall DoPlay();
 	//int __stdcall DoTimerStuff();
 	//int __stdcall EventReceiver();
+
+	// full-path name of the file selected
+	
+	virtual wchar_t* __stdcall GetFileName();
+	virtual bool GetIsPlaying(void);
 
 private:
 
@@ -61,14 +68,15 @@ private:
 	// structure that contains info about the file that was opened
 	OPENFILENAME priFileInfo;
 
-	// full-path name of the file selected
-	wchar_t szFileName[MAX_SIZE];
-
+	wchar_t m_szFileName[MAX_SIZE];
+	
 };
 
 DLL_API DSPlayer* __stdcall  CreateDSPlayerObject();
 
 DLL_API void __stdcall DeleteDSPlayerObject(DSPlayer*);
+
+DLL_API PyObject* __stdcall GetFileName(DSPlayer& dp);
 
 #ifdef __cplusplus
 };

@@ -84,6 +84,8 @@ class DSPlayer(_object):
     def DoPlayOrPause(self): return _DSPlayer.DSPlayer_DoPlayOrPause(self)
     def DoStop(self): return _DSPlayer.DSPlayer_DoStop(self)
     def DoPlay(self): return _DSPlayer.DSPlayer_DoPlay(self)
+    def GetFileName(self): return _DSPlayer.DSPlayer_GetFileName(self)
+    def GetIsPlaying(self): return _DSPlayer.DSPlayer_GetIsPlaying(self)
 DSPlayer_swigregister = _DSPlayer.DSPlayer_swigregister
 DSPlayer_swigregister(DSPlayer)
 
@@ -95,5 +97,9 @@ CreateDSPlayerObject = _DSPlayer.CreateDSPlayerObject
 def DeleteDSPlayerObject(*args):
   return _DSPlayer.DeleteDSPlayerObject(*args)
 DeleteDSPlayerObject = _DSPlayer.DeleteDSPlayerObject
+
+def GetFileName(*args):
+  return _DSPlayer.GetFileName(*args)
+GetFileName = _DSPlayer.GetFileName
 
 
