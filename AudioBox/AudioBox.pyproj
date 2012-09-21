@@ -19,6 +19,7 @@
     <InterpreterPath />
     <InterpreterArguments>
     </InterpreterArguments>
+    <PublishUrl />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
