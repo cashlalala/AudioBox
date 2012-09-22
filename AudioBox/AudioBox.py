@@ -7,7 +7,7 @@ if __name__ == '__main__':
     koan.init();
         
     w = PlayerWindow()    
-    loadKXML(w, sys.argv[1])
+    loadKXML(w, "dsplayer.xml")
     w.show()
         
     koan.run(1)
