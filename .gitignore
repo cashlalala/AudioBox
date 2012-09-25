@@ -30,3 +30,4 @@ $tf*/
 [ipch]*/
 *sdf
 *.pyc
+*.log.txt

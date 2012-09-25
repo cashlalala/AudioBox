@@ -1,18 +1,6 @@
 #include "StdAfx.h"
 #include "DSPlayer.h"
 
-
-DSPlayer* __stdcall CreateDSPlayerObject()
-{
-	return new DSPlayer();
-}
-
-void __stdcall DeleteDSPlayerObject(DSPlayer* obj)
-{
-	delete obj;
-	obj = NULL;
-}
-
 BOOL WCharToMByte(LPCWSTR lpcwszStr, LPSTR lpszStr, DWORD dwSize)
 {
 	DWORD dwMinSize;
@@ -34,6 +22,17 @@ BOOL isValidName(wchar_t* str)
 	return TRUE;
 }
 
+DSPlayer* __stdcall CreateDSPlayerObject()
+{
+	return new DSPlayer();
+}
+
+void __stdcall DeleteDSPlayerObject(DSPlayer* obj)
+{
+	delete obj;
+	obj = NULL;
+}
+
 DLL_API PyObject* __stdcall GetFileName( DSPlayer& dp )
 {
 	char szTmpCharFileName[MAX_SIZE];
@@ -41,16 +40,14 @@ DLL_API PyObject* __stdcall GetFileName( DSPlayer& dp )
 
 	wchar_t* szTmpFileName = dp.GetFileName();
 	if (!isValidName(szTmpFileName))
-	{
 		return NULL;
-	}
 
 	WCharToMByte(szTmpFileName,szTmpCharFileName,MAX_SIZE);
 	PyObject* resultString = PyString_FromFormat("%s",szTmpCharFileName);
 	return resultString;
 }
 
-wchar_t* __stdcall DSPlayer::GetFileName()
+wchar_t* DSPlayer::GetFileName()
 {
 	return this->m_szFileName;
 }
@@ -183,6 +180,9 @@ int DSPlayer::DoStop()
 {
 	REFERENCE_TIME rt = 0;
 
+	if (!isValidName(m_szFileName))
+		return 0;
+
 	if (m_pMediaControl != NULL)
 	{
 
@@ -214,9 +214,7 @@ int DSPlayer::StartPlayingFile()
 	long temporary;
 
 	if (!isValidName(m_szFileName))
-	{
 		return 0;
-	}
 
 	wcsncpy(wFileName, m_szFileName, MAX_SIZE);
 
@@ -247,6 +245,8 @@ int DSPlayer::StartPlayingFile()
 
 int DSPlayer::DoPlayOrPause()
 {
+	if (!isValidName(m_szFileName))
+		return 0;
 	if (m_pMediaControl != NULL)
 	{
 		if (m_bIsPlaying)
