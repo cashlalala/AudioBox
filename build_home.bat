@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 @echo.
 
 @set curPath=%~dp0
@@ -10,8 +10,8 @@
 @set PATH=C:\python\python25
 
 @echo get into pyinstaller...
-@E:
-@cd E:\pyinstaller-2.0
+@D: 
+@cd D:\Program Files\pyinstaller-2.0
 
 @python pyinstaller.py --paths="%curPath%AudioBox\koanSDK";"%curPath%Debug";"%curPath%AudioBox" --onefile -o "%USERPROFILE%\Desktop\Ouput" "%curPath%AudioBox\AudioBox.py" 
 
