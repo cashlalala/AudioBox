@@ -70,6 +70,7 @@ private:
 
 	wchar_t m_szFileName[MAX_SIZE];
 	
+	bool m_bIsFileDialogExist;
 };
 
 DLL_API DSPlayer* __stdcall  CreateDSPlayerObject();

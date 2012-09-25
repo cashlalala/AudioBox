@@ -25,12 +25,26 @@ BOOL WCharToMByte(LPCWSTR lpcwszStr, LPSTR lpszStr, DWORD dwSize)
 	return TRUE;
 }
 
+BOOL isValidName(wchar_t* str)
+{
+	if (str == NULL)
+		return FALSE;
+	if (wcslen(str)==0)
+		return FALSE;
+	return TRUE;
+}
+
 DLL_API PyObject* __stdcall GetFileName( DSPlayer& dp )
 {
 	char szTmpCharFileName[MAX_SIZE];
 	memset(szTmpCharFileName,0x0,MAX_SIZE);
 
-	wchar_t* szTmpFileName = dp.GetFileName();	
+	wchar_t* szTmpFileName = dp.GetFileName();
+	if (!isValidName(szTmpFileName))
+	{
+		return NULL;
+	}
+
 	WCharToMByte(szTmpFileName,szTmpCharFileName,MAX_SIZE);
 	PyObject* resultString = PyString_FromFormat("%s",szTmpCharFileName);
 	return resultString;
@@ -42,6 +56,7 @@ wchar_t* __stdcall DSPlayer::GetFileName()
 }
 
 DSPlayer::DSPlayer(void)
+	: m_bIsFileDialogExist(false)
 {
 	CoInitialize(NULL);
 
@@ -49,6 +64,7 @@ DSPlayer::DSPlayer(void)
 	m_pMediaControl		= NULL;
 	m_pMediaSeeking		= NULL;
 	m_pMediaEventEx		= NULL;
+	ZeroMemory(m_szFileName,sizeof(m_szFileName));
 	m_lltotalDuration		= 0;
 	m_ltimeElapsed			= 0;
 }
@@ -121,6 +137,13 @@ int DSPlayer::OpenFileDialog()
 {
 	OPENFILENAME ofn;
 
+	if (m_bIsFileDialogExist)
+	{
+		return 0;
+	}
+
+	m_bIsFileDialogExist = TRUE;
+
 	ZeroMemory(&ofn, sizeof(ofn));
 	ZeroMemory(m_szFileName, sizeof(m_szFileName));
 
@@ -139,9 +162,13 @@ int DSPlayer::OpenFileDialog()
 			DoStop();
 		
 		Initialize();
+
+		m_bIsFileDialogExist = FALSE;
 		//memcpy(&priFileInfo, &ofn, sizeof(ofn));
 		return 1;
 	}
+
+	m_bIsFileDialogExist = FALSE;
 
 	return 0;
 }
@@ -185,6 +212,11 @@ int DSPlayer::StartPlayingFile()
 	char totalTime[MAX_SIZE];
 	LONGLONG lDuration100NanoSecs = 0;
 	long temporary;
+
+	if (!isValidName(m_szFileName))
+	{
+		return 0;
+	}
 
 	wcsncpy(wFileName, m_szFileName, MAX_SIZE);
 
