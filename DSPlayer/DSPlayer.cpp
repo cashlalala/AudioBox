@@ -39,11 +39,13 @@ DLL_API PyObject* __stdcall GetFileName( DSPlayer& dp )
 	memset(szTmpCharFileName,0x0,MAX_SIZE);
 
 	wchar_t* szTmpFileName = dp.GetFileName();
+
 	if (!isValidName(szTmpFileName))
-		return NULL;
+		return Py_BuildValue("");
 
 	WCharToMByte(szTmpFileName,szTmpCharFileName,MAX_SIZE);
 	PyObject* resultString = PyString_FromFormat("%s",szTmpCharFileName);
+
 	return resultString;
 }
 
@@ -141,6 +143,9 @@ int DSPlayer::OpenFileDialog()
 
 	m_bIsFileDialogExist = TRUE;
 
+	wchar_t szFileName[MAX_SIZE];
+	wcsncpy(szFileName,m_szFileName,MAX_SIZE);
+
 	ZeroMemory(&ofn, sizeof(ofn));
 	ZeroMemory(m_szFileName, sizeof(m_szFileName));
 
@@ -163,6 +168,10 @@ int DSPlayer::OpenFileDialog()
 		m_bIsFileDialogExist = FALSE;
 		//memcpy(&priFileInfo, &ofn, sizeof(ofn));
 		return 1;
+	}
+	else
+	{
+		wcsncpy(m_szFileName,szFileName,MAX_SIZE);
 	}
 
 	m_bIsFileDialogExist = FALSE;
