@@ -17,4 +17,4 @@
 
 @echo output the generated folder to %USERPROFILE%\Desktop\Ouput
 
-@copy "%curPath%AudioBox\dsplayer.xml" "%USERPROFILE%\Desktop\Ouput"
+@copy "%curPath%AudioBox\dsplayer.xml" "%USERPROFILE%\Desktop\Ouput\dist"
