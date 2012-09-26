@@ -35,7 +35,7 @@ class PlayerWindow(Window):
         console.setLevel(logging.DEBUG)    
         console.setFormatter(formatter)
         
-        fileHandler = logging.FileHandler("honoiText.log", mode='w')
+        fileHandler = logging.FileHandler("AudioBox.log", mode='w')
         fileHandler.setFormatter(formatter)
         
         
