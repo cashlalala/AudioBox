@@ -16,3 +16,5 @@
 @python pyinstaller.py --paths="%curPath%AudioBox\koanSDK";"%curPath%Debug";"%curPath%AudioBox" --onefile -o "%USERPROFILE%\Desktop\Ouput" "%curPath%AudioBox\AudioBox.py" 
 
 @echo output the generated folder to %USERPROFILE%\Desktop\Ouput
+
+@copy "%curPath%AudioBox\dsplayer.xml" "%USERPROFILE%\Desktop\Ouput"
